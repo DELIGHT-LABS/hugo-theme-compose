@@ -2,7 +2,6 @@
 # docSections = ["docs", "tutorials"]
 
 disableHome = true
-enableDarkMode = true # set to false to disable darkmode by default # user will still have the option to use dark mode
 
 blogDir = "blog" # can be posts, blog e.t.c
 

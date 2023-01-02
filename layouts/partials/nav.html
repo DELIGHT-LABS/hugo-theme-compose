@@ -6,9 +6,6 @@
 		{{- $litPath := absURL ($logos.lightMode) }}
 		{{- $darkPath := absURL ($logos.darkMode) }}
 		<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
-			{{ with $sp.enableDarkMode }}
-			<source srcset = '{{ $darkPath }}' media="(prefers-color-scheme: dark)">
-			{{ end }}
 			<img srcset = '{{ $litPath }}' alt = '{{ $s.Title }} Logo'>
 		</picture>
 		<label class="nav_toggle toggle" title='{{ T "site_menu" }}' role="button">
@@ -40,9 +37,6 @@
 					{{- $litPath := absURL ($repo.iconLight) }}
 					{{- $darkPath := absURL ($repo.iconDark) }}
 					<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
-						{{ with $sp.enableDarkMode }}
-							<source srcset = '{{ $darkPath }}' media="(prefers-color-scheme: dark)">
-						{{ end }}
 						<img srcset = '{{ $litPath }}' alt = '{{ $repo.name }} Repo'>
 					</picture>
 				{{ else }}
@@ -50,6 +44,5 @@
 				{{ end }}
 			</a>
 		</li>
-		<li class="nav-item">{{ partial "mode" . }}</li>
 	</ul>
 </nav>
