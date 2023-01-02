@@ -1,5 +1,12 @@
 <!doctype html>
 <html lang="{{ site.Language.Lang }}"{{ with site.Params.enableDarkMode }} class="dark"{{ end }}>
+{{- if and .IsHome site.Params.disableHome }}
+<head>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="refresh" content="0; url={{ "docs" }}"/>
+</head>
+{{- else }}
 <head>
   {{- partial "head" . }}
 </head>
@@ -37,4 +44,5 @@
   {{- partialCached "scripts/bundle" . -}}
   {{- partial "scripts/other" . -}}
 </body>
+{{ end }}
 </html>
