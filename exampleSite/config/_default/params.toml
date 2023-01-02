@@ -24,12 +24,10 @@ otherSearchableFields = ["Tags", "Categories", "CustomField"] # As they appear i
 # Site logo
 [logo]
   lightMode = "images/compose.svg"
-  darkMode = "images/compose-light.svg"
 
-[source]
+[[source]]
   name = "GitHub"
   iconLight = "images/GitHubMarkLight.svg"
-  iconDark = "images/GitHubMarkDark.svg"
   url = "https://github.com/onweru/compose/"
 
 # optional

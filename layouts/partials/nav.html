@@ -4,12 +4,11 @@
 	<a href="{{ $s.BaseURL }}{{if site.Params.disableHome }}/docs/{{ end}}" class="nav_brand">
 		{{- $logos := $sp.logo }}
 		{{- $litPath := absURL ($logos.lightMode) }}
-		{{- $darkPath := absURL ($logos.darkMode) }}
-		<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
+		<picture data-lit="{{ $litPath }}">
 			<img srcset = '{{ $litPath }}' alt = '{{ $s.Title }} Logo'>
 		</picture>
 		<label class="nav_toggle toggle" title='{{ T "site_menu" }}' role="button">
-			{{ partial "sprite" (dict "icon" "harmburger") }}
+			{{ partial "sprite" (dict "icon" "hamburger") }}
 		</label>
 	</a>
 	<ul class="nav_body">
@@ -31,18 +30,19 @@
 		</li>
 		{{- end }}
 		{{ $repo := $sp.source }}
+                {{- range $source := $sp.source }}
 		<li class="nav-item nav_repo">
-			<a class="nav-link" href="{{ $repo.url }}" target="_blank">
-				{{ if $repo.iconLight }}
-					{{- $litPath := absURL ($repo.iconLight) }}
-					{{- $darkPath := absURL ($repo.iconDark) }}
-					<picture data-lit="{{ $litPath }}" data-dark="{{ $darkPath }}">
-						<img srcset = '{{ $litPath }}' alt = '{{ $repo.name }} Repo'>
+                        <a class="nav-link" href="{{ $source.url }}" target="_blank">
+                                {{ if $source.iconLight }}
+                                        {{- $litPath := absURL ($source.iconLight) }}
+                                        <picture data-lit="{{ $litPath }}">
+                                                <img srcset = '{{ $litPath }}' alt = '{{ $source.name }}'>
 					</picture>
 				{{ else }}
-					{{ $repo.name }}
+					{{ $source.name }}
 				{{ end }}
 			</a>
 		</li>
+		{{- end }}
 	</ul>
 </nav>
